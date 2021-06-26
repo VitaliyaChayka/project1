@@ -2,7 +2,10 @@ const { src, dest, parallel, series, watch } = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync').create(),
     sourcemaps = require('gulp-sourcemaps'),
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+    babel = require('gulp-babel'),
+    uglify = require('gulp-uglify'),
+    rename = require("gulp-rename");
     sass.compiler = require('node-sass');
 
 function styles() {
@@ -13,6 +16,14 @@ function styles() {
     .pipe(sourcemaps.write())
     .pipe(dest('./src/css'))
     .pipe(browserSync.stream());
+}
+
+function scripts() {
+    return src('./src/js/script.js')
+    .pipe(babel({presets: ['@babel/env']}))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(dest('./src/js'))
 }
 
 function browsersync(){
@@ -31,4 +42,6 @@ function startwatch(){
 exports.styles = styles;
 exports.browsersync = browsersync;
 
-exports.default = parallel(styles, browsersync, startwatch)
+
+exports.default = parallel(styles, scripts, browsersync, startwatch)
+
