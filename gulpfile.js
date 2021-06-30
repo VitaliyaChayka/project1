@@ -5,7 +5,8 @@ const { src, dest, parallel, series, watch } = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     babel = require('gulp-babel'),
     uglify = require('gulp-uglify'),
-    rename = require("gulp-rename");
+    rename = require("gulp-rename"),
+    concat = require('gulp-concat');
     sass.compiler = require('node-sass');
 
 function styles() {
@@ -20,11 +21,23 @@ function styles() {
 
 function scripts() {
     return src('./src/js/script.js')
+    
     .pipe(babel({presets: ['@babel/env']}))
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(dest('./src/js'))
+    .pipe(browserSync.stream());
 }
+
+function scriptsLibs() {
+    return src('./src/libs/*.js')
+    .pipe(concat('libs.js'))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(dest('./src/js'))
+    .pipe(browserSync.stream());
+}
+
 
 function browsersync(){
     browserSync.init({
@@ -37,11 +50,13 @@ function browsersync(){
 function startwatch(){
     watch('./src/scss/**/*.scss', styles)
     watch('*.html').on('change', browserSync.reload)
+    watch('./src/js/script.js', scripts)
+    watch('./src/libs/*.js', scriptsLibs)
 }
  
 exports.styles = styles;
 exports.browsersync = browsersync;
 
 
-exports.default = parallel(styles, scripts, browsersync, startwatch)
+exports.default = parallel(styles, scriptsLibs, scripts, browsersync, startwatch)
 
