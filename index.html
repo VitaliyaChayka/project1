@@ -13,6 +13,35 @@
 
 </head>
 <body>
+    <div id="vue">
+        <div class="notify" v-show="show_notify">
+            {{ text_notify }}
+            <button @click="hideNotify()" class="notify__close">X</button>
+        </div>
+
+
+
+        <!-- @ --- v-on -->
+        <!-- : --- v-bind -->
+        
+        <!-- <h1>{{ show ? title : 'Hello'}}</h1> -->
+        <!-- <h1>{{ title.toUpperCase() }}</h1> -->
+        <!-- <h1 v-html="show ? title : 'Hello'" 
+        class="title" v-bind:class="show ? 'show' : 'noshow'"></h1> -->
+        <h1>{{ firstLetterToUpperCase(title) }}</h1>
+        <label>
+            <input type="checkbox" v-model="show_notify">
+            Show notify
+        </label>
+        <input type="text" @.prevent.change="valid()" v-model="input_text">
+        {{ log(input_text) }}
+        <h2>{{ input_text }}</h2>
+        <p>{{error_text}}</p>
+
+
+
+    </div>
+    
     <div class="container">
         <div class="row gy-2">
             <div class="col-sm-6 col-md-4 col-xl-3">
@@ -70,6 +99,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./src/js/script.js"></script>
 
