@@ -38,66 +38,46 @@
         <h2>{{ input_text }}</h2>
         <p>{{error_text}}</p>
 
+        <br>
+        <h2>Average price is {{ averagePrice | viewPrice('$') }}</h2>
 
+        <div class="container">
+            <div class="row gy-2">
 
-    </div>
-    
-    <div class="container">
-        <div class="row gy-2">
-            <div class="col-sm-6 col-md-4 col-xl-3">
-                <div class="card">
-                    <img src="src/image/image1.jpg" alt="product">
-                    <div class="card__name text-center mt-2 mb-1">Pepperoni Pizza</div>
-                    <div class="price">
-                        <span class="price_new">$19.99</span>
-                        <span class="price_old">$24.99</span>
+                <div class="col-sm-6 col-md-4 col-xl-3" :id="'product' + i"
+                    v-for="(product, i) in products" :key="i">
+                    <div class="card">
+                        <img :src="'src/image/' + product.image" :alt="product.title">
+                        <div class="card__name text-center mt-2 mb-1">{{ i + " - " +  product.title }}</div>
+                        <!-- <div class="price" v-if="product.discount">
+                            <span class="price_new">
+                                {{ getNewPrice(product)  }}
+                            </span>
+                            <span class="price_old">{{ product.price }}</span>
+                        </div>
+                        <div class="price" v-else>
+                            <span class="price_new">
+                                {{ product.price  }}
+                            </span>
+                        </div> -->
+                        <div class="price" >
+                            <span class="price_new">
+                                {{ getNewPrice(product) | viewPrice() }}
+                            </span>
+                            <span class="price_old" v-if="product.discount">
+                                {{ product.price | viewPrice('$') }}
+                            </span>
+                        </div>
+                    <div class="scol-12 px-3">
+                        <button type="button" class="w-100 btn btn-primary">Primary</button>
                     </div>
-                <div class="col-12 px-3">
-                    <button type="button" class="w-100 btn btn-primary">Primary</button>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-xl-3">
-                <div class="card">
-                    <img src="src/image/image1.jpg" alt="product">
-                    <div class="card__name text-center mt-2 mb-1">Pepperoni Pizza</div>
-                    <div class="price">
-                        <span class="price_new">$19.99</span>
-                        <span class="price_old">$24.99</span>
                     </div>
-                <div class="col-12 px-3">
-                    <button type="button" class="w-100 btn btn-primary">Primary</button>
                 </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-xl-3  d-none d-md-block">
-                <div class="card">
-                    <img src="src/image/image1.jpg" alt="product">
-                    <div class="card__name text-center mt-2 mb-1">Pepperoni Pizza</div>
-                    <div class="price">
-                        <span class="price_new">$19.99</span>
-                        <span class="price_old">$24.99</span>
-                    </div>
-                <div class="col-12 px-3">
-                    <button type="button" class="w-100 btn btn-primary">Primary</button>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-xl-3 d-none d-xl-block">
-                <div class="card">
-                    <img src="src/image/image1.jpg" alt="product">
-                    <div class="card__name text-center mt-2 mb-1">Pepperoni Pizza</div>
-                    <div class="price">
-                        <span class="price_new">$19.99</span>
-                        <span class="price_old">$24.99</span>
-                    </div>
-                <div class="col-12 px-3">
-                    <button type="button" class="w-100 btn btn-primary">Primary</button>
-                </div>
-                </div>
+
             </div>
         </div>
     </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -6,8 +6,35 @@ let app = new Vue({
         show_notify: true,
         show: false,
         error_text: '',
-        input_text: null
-
+        input_text: null,
+        products:[
+            {
+                id: 123,
+                title: 'Pepperoni Pizza',
+                price: 24.99,
+                discount: 5,
+                image: 'image1.jpg'
+            },
+            {
+                id: 234,
+                title: 'Baked Pancakes',
+                price: 44.89,
+                discount: 3,
+                image: 'image1.jpg'
+            },
+            {
+                id: 345,
+                title: 'Avocado',
+                price: 20.00,
+                image: 'image1.jpg'
+            },
+            {
+                id: 456,
+                title: 'Bunch of Orange',
+                price: 29.99,
+                image: 'image1.jpg'
+            }
+        ]
     },
     methods: {
         firstLetterToUpperCase(text){
@@ -26,9 +53,30 @@ let app = new Vue({
         valid(){
             this.error_text = this.input_text.length > 5 ? 'error' :  '';
             c.l
+        },
+        getNewPrice(product){
+            let new_price = product.discount ? 
+            product.price * (1 - product.discount/ 100 ) :
+            product.price;
+            return new_price;
         }
 
+    },
+    filters: {
+        viewPrice(value, currency = "$"){
+            return currency + value.toFixed(2);
+        }
+    },
+    computed: {
+        averagePrice(){
+            let average_price = 0;
+            this.products.forEach(el=>{
+                average_price += +el.price
+            })
+            return average_price / this.products.length;
+        }
     }
+
 })
 
 
