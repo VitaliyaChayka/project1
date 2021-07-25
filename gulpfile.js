@@ -20,7 +20,7 @@ function styles() {
 }
 
 function scripts() {
-    return src('./src/js/script.js')
+    return src('./src/js/scripts.js')
     
     .pipe(babel({presets: ['@babel/env']}))
     .pipe(uglify())
