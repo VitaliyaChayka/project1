@@ -598,39 +598,51 @@
 
                      <h3 class="reg-block__h3">Create an Account</h3>
 
-                     <div class="block__type block__type_label">
-                        <label class="block__label" for="fname">First Name</label>
-                        <label class="block__label block__label_last" for="lname">Last Name</label>
-                     </div>
-                     <div class="block__type">
-                        <input class="reg-block__input input__modal" type="text" id="fname" name="fname" value=""
-                           placeholder="Enter your First Name ">
-                        <input class="reg-block__input input__modal" type="text" id="lname" name="lname" value=""
-                           placeholder="Enter your Last Name">
-                     </div>
+                     <div class="reg-block__wrapper">
+                        <div class="block__type">
+                           <label class="block__type_label" for="fname">First Name</label>
+                           <input class="block__type_input" type="text" id="fname" name="fname" value=""
+                              placeholder="Enter your First Name ">
+                        </div>
 
-                     <div class="block__e-mail">
-                        <label for="e-mail" class="block__label block__label_e-mail"> E-mail </label>
-                        <input class="mail-block__input input__modal" type="email" id="e-mail" name="email"
-                           placeholder="Enter your e-mail" value="">
+                        <div class="block__type">
+                           <label class="block__type_label" for="lname">Last Name</label>
+                           <input class="block__type_input" type="text" id="lname" name="lname" value=""
+                              placeholder="Enter your Last Name">
+                        </div>
+                     </div>
+                     <div class="reg-block__wrapper">
+                        <div class="block__type block__e-mail">
+                           <label for="e-mail" class="block__type_label block__label_e-mail"> E-mail </label>
+                           <input class="block__type_input block__type_email" type="email" id="e-mail" name="email"
+                              placeholder="Enter your e-mail" value="">
+                        </div>
+                        <div class="block__type">
+                           <label class="block__type_label" for="address">Address</label>
+                           <input class="block__type_input" type="text" id="address" name="address" value=""
+                              placeholder="Enter your address">
+                        </div>
                      </div>
 
                      <div class="radio-block__type">
                         <input class="radio-block__type_item" type="radio" id="male" name="gender" value="male">
-                        <label class="radio-block__type_item block__label" for="male">Male</label>
+                        <label class="radio-block__type_item block__type_label" for="male">Male</label>
                         <input class="radio-block__type_item" type="radio" id="female" name="gender" value="female">
-                        <label class=" radio-block__type_item block__label" for="female">Female</label>
+                        <label class=" radio-block__type_item block__type_label" for="female">Female</label>
                      </div>
 
-                     <div class="block__type">
-                        <label class="block__label" for="pass">Password</label>
-                        <label class="block__label block__label_last" for="confpass">Confirm Password</label>
-                     </div>
+                     <div class="reg-block__wrapper">
 
-                     <div class="block__type block__type_inputpass">
-                        <input class="reg-block__input input__modal" type="text" id="pass" name="pass" value="******">
-                        <input class="reg-block__input input__modal" type="text" id="confpass" name="confpass"
-                           value="******">
+                        <div class="block__type">
+                           <label class="block__type_label" for="pass">Password</label>
+                           <input class="block__type_input" type="text" id="pass" name="pass" value="******">
+                        </div>
+
+                        <div class="block__type">
+                           <label class="block__type_label" for="confpass">Confirm Password</label>
+                           <input class="block__type_input" type="text" id="confpass" name="confpass" value="******">
+                        </div>
+
                      </div>
 
                      <div class="button-wrapper">
