@@ -49,7 +49,7 @@ $('.home-slider').slick({
   fade: true,
   cssEase: 'linear'
 });
-////////////////////////
+////////////////////////modal
 
 let modal = document.getElementById("myModal");
 let btn = document.getElementById("myBtn");
@@ -65,7 +65,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-/////////////////////
+/////////////////////modal2
 let modal2 = document.getElementById("Modal2");
 let btn2 = document.getElementById("Link");
 let span2 = document.getElementsByClassName("close2")[0];
@@ -93,7 +93,11 @@ window.addEventListener('scroll', function(){
 
     }
 })
-/////////////////////////scroll sections
+
+let wHeight = window.innerHeight;
+window.addEventListener('resize', function(){
+    wHeight = window.innerHeight;
+})
 
 let sectionHight = 0
 for (let link of document.getElementsByClassName('nav_link')){
@@ -110,12 +114,6 @@ for (let link of document.getElementsByClassName('nav_link')){
 }
 
 
-////////////////////////////////// icon scrollup
-
-let wHeight = window.innerHeight;
-window.addEventListener('resize', function(){
-    wHeight = window.innerHeight;
-})
 
 window.addEventListener('scroll', function(e) {
     let blocks = document.querySelectorAll('.block')

@@ -248,7 +248,7 @@ main {
 
       }
 
-      @media (max-width: 800px) {
+      @media (max-width: 850px) {
          display: none;
       }
 
@@ -1755,12 +1755,6 @@ iframe {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   padding-top: 2.2em;
-   padding-left: 4em;
-
-   @media (max-width: 780px) {
-      padding: 1.2em 2.2em 0em;
-   }
 
    &__label {
       font-family: $font-main;
@@ -1778,8 +1772,7 @@ iframe {
       border-radius: 10px;
       border: 2px solid #9595C9;
       box-shadow: 0px 20px 40px 0px #9595C933;
-      padding-left: 2em;
-      padding-right: 9em;
+      padding: 0 9em 0 2em;
       cursor: pointer;
 
    }
