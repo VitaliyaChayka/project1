@@ -454,6 +454,11 @@ main {
       padding: 0.7em 1.5em;
 
    }
+
+   @media (max-width: 3600px) {
+      padding: 0.4em 1.2em;
+
+   }
 }
 
 .btn__get {
@@ -1325,7 +1330,16 @@ main {
          height: 34em;
          top: -900px;
 
+      }
 
+      @media (max-width: 480px) {
+         width: 28em;
+         height: 28em;
+      }
+
+      @media (max-width: 360px) {
+         width: 22em;
+         height: 22em;
       }
 
    }
@@ -2353,6 +2367,7 @@ input[type=text]:checked {
    stroke-width: 0;
    stroke: currentColor;
    fill: currentColor;
+
 }
 
 .icon-cheveron-outline-up {
