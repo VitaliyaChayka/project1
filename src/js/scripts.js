@@ -112,17 +112,6 @@ for (let link of document.getElementsByClassName('nav_link')){
 
 ////////////////////////////////// icon scrollup
 
-// let upBtn = document.getElementById ('scrollup');
-// window.addEventListener('scroll', function(){
-//     if (wHeight < window.scrollY){
-//         upBtn.classList.add('scrollup_active')
-//     }
-//     else {
-//         upBtn.classList.remove('scrollup_active')
-
-//     }
-// })
-
 let wHeight = window.innerHeight;
 window.addEventListener('resize', function(){
     wHeight = window.innerHeight;
