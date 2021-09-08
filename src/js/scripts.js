@@ -25,10 +25,6 @@ $('.slider').slick({
 
 
 ////////////////////////////////// icon scrollup
-let wHeight = window.innerHeight;
-window.addEventListener('resize', function(){
-    wHeight = window.innerHeight;
-})
 
 let upBtn = document.getElementById ('scrollup');
 window.addEventListener('scroll', function(){
@@ -41,6 +37,10 @@ window.addEventListener('scroll', function(){
     }
 })
 
+let wHeight = window.innerHeight;
+window.addEventListener('resize', function(){
+    wHeight = window.innerHeight;
+})
 
 let sectionHight = 0
 for (let link of document.getElementsByClassName('nav_link')){
