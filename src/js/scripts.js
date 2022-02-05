@@ -33,6 +33,13 @@ $(document).ready(function(){
   });
 });
 
+$(document).ready(function() {
+  $('.nav__link').click(function(event) {
+      $('.header__burger, .nav').removeClass('active');
+      $('body').removeClass('lock');
+  });
+});
+
 ////////////////////////animation///
 var button = document.querySelector(".form__btn");
 
